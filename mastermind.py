@@ -16,6 +16,10 @@ class Mastermind:
     def add_guess(self, combination: str):
         self.guesses.append(combination)
 
+    # Write logic for a user to be able to view their past guesses:
+    def view_guesses(self):
+        return self.guesses
+
     # Write logic that checks if a user can still make guesses:
     def continue_guessing(self):
         if self.TOTAL_TRIES - len(self.guesses) == 0 and not self.combination_found:
