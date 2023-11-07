@@ -11,3 +11,6 @@ class Mastermind:
             return True
         else: 
             False
+
+    # Write logic in the event that a user attempts a combination:
+    
