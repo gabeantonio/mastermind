@@ -5,6 +5,6 @@ class Play:
         print('Hello World!')
         mastermind = Mastermind()
         print(mastermind)
-    
+
     if __name__ == '__main__':
         main()
