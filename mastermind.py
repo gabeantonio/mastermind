@@ -13,4 +13,5 @@ class Mastermind:
             False
 
     # Write logic in the event that a user attempts a combination:
-    
+    def add_guess(self, combination: str):
+        self.guesses.append(combination)
