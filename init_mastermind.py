@@ -9,6 +9,12 @@ class Play:
             mastermind.add_guess(user_guess)
             guesses = mastermind.view_guesses()
             print('GUESSES --> ', guesses)
+            # Add logic that will check to see if the most recent guess is correct or not:
+            if user_guess == mastermind.hidden_combination:
+                print('Congratulations! You have guessed the hidden combination correctly!')
+                break
+            else:
+                print('Try again!')
 
     if __name__ == '__main__':
         main()
