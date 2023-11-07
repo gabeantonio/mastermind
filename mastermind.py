@@ -7,7 +7,7 @@ class Mastermind:
 
     # Write winning logic:
     def combination_found(self):
-        if self.guesses[-1] == self.hidden_combination:
+        if len(self.guesses) > 0 and self.guesses[-1] == self.hidden_combination:
             return True
         else: 
             False
@@ -22,5 +22,5 @@ class Mastermind:
 
     # Write logic that checks if a user can still make guesses:
     def continue_guessing(self):
-        if self.TOTAL_TRIES - len(self.guesses) == 0 and not self.combination_found:
+        if self.TOTAL_TRIES - len(self.guesses) > 0 and not self.combination_found:
             return True

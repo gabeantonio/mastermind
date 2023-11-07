@@ -7,10 +7,12 @@ class Play:
         while mastermind.continue_guessing:
             user_guess = input('Type your guess here: ')
             mastermind.add_guess(user_guess)
-            guesses = mastermind.view_guesses()
-            print('GUESSES --> ', guesses)
+            # guesses = mastermind.view_guesses()
+            # print('GUESSES --> ', guesses)
+
             # Add logic that will check to see if the most recent guess is correct or not:
-            if user_guess == mastermind.hidden_combination:
+
+            if mastermind.combination_found():
                 print('Congratulations! You have guessed the hidden combination correctly!')
                 break
             else:
