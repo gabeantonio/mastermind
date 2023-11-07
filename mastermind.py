@@ -15,3 +15,8 @@ class Mastermind:
     # Write logic in the event that a user attempts a combination:
     def add_guess(self, combination: str):
         self.guesses.append(combination)
+
+    # Write logic that checks if a user can still make guesses:
+    def continue_guessing(self):
+        if self.TOTAL_TRIES - len(self.guesses) == 0 and not self.combination_found:
+            return True
