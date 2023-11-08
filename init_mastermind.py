@@ -16,7 +16,8 @@ class Play:
         print('HIDDEN COMBINATION -->', hidden_combination)
 
         mastermind = Mastermind(hidden_combination)
-        while mastermind.continue_guessing:
+
+        while mastermind.continue_guessing():
             user_guess = input('Type your guess here: ')
             # Input validation:
             if len(user_guess) < mastermind.COMBO_LENGTH:
@@ -35,11 +36,10 @@ class Play:
             print(f'You have {remaining_guesses} remaining guesses.')
             print(f'Your past guesses: {guesses}')
 
-            if mastermind.combination_found():
-                print('Congratulations! You have guessed the hidden combination correctly!')
-                break
-            else:
-                print('Try again! \n')
+        if mastermind.combination_found:
+            print('Congratulations! You have guessed the hidden combination correctly!')
+        else:
+            print('You failed to guess the combination.')
 
     if __name__ == '__main__':
         main()

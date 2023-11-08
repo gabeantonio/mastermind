@@ -6,11 +6,13 @@ class Mastermind:
         self.guesses = []
 
     # Write winning logic:
+    # Make it a property so it doesnt get called before you can input anything.
+    @property
     def combination_found(self):
         if len(self.guesses) > 0 and self.guesses[-1] == self.hidden_combination:
             return True
         else: 
-            False
+            return False
 
     # Write logic in the event that a user attempts a combination:
     def add_guess(self, combination: str):
@@ -48,3 +50,5 @@ class Mastermind:
     def continue_guessing(self):
         if self.TOTAL_TRIES - len(self.guesses) > 0 and not self.combination_found:
             return True
+        else: 
+            return False
