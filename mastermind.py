@@ -36,6 +36,7 @@ class Mastermind:
             if number == self.hidden_combination[i]:
                 correct_position += 1
         correct_numbers = len(guessed_numbers)
+        # Correct numbers and correct positon doesnt account for duplicates and correct position does not work.
         return [correct_numbers, correct_position]
         
 
