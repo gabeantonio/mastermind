@@ -39,6 +39,11 @@ class Mastermind:
         correct_numbers = len(guessed_numbers) - len(wrong_numbers)
         return [correct_numbers, correct_position]
         
+    # Write logic so that the user can view how many guesses they have left:
+    def remaining_guesses(self):
+        return self.TOTAL_TRIES - len(self.guesses)
+
+
     # Write logic that checks if a user can still make guesses:
     def continue_guessing(self):
         if self.TOTAL_TRIES - len(self.guesses) > 0 and not self.combination_found:

@@ -29,9 +29,11 @@ class Play:
             mastermind.add_guess(user_guess)
             check = mastermind.check_guess(user_guess)
             guesses = mastermind.view_guesses()
+            remaining_guesses = mastermind.remaining_guesses()
 
             print(f'You have guessed {check[0]} correct numbers and {check[1]} correct positions')
-            print('GUESSES --> ', guesses)
+            print(f'You have {remaining_guesses} remaining guesses.')
+            print(f'Your past guesses: {guesses}')
 
             if mastermind.combination_found():
                 print('Congratulations! You have guessed the hidden combination correctly!')
