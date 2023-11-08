@@ -14,16 +14,14 @@ class Play:
         else:
             print(f'Failed to get a random combination. Status code: {response.status_code}')
         print('HIDDEN COMBINATION -->', hidden_combination)
-        # print('TYPE-->', type(hidden_combination))
 
         mastermind = Mastermind(hidden_combination)
         while mastermind.continue_guessing:
             user_guess = input('Type your guess here: ')
-
             mastermind.add_guess(user_guess)
-            guesses = mastermind.view_guesses()
             check = mastermind.check_guess(user_guess)
-            print('Correct numbers and correct positions -->', check)
+            guesses = mastermind.view_guesses()
+
             print(f'You have guessed {check[0]} correct numbers and {check[1]} correct positions')
             print('GUESSES --> ', guesses)
 
@@ -31,7 +29,7 @@ class Play:
                 print('Congratulations! You have guessed the hidden combination correctly!')
                 break
             else:
-                print('Try again!')
+                print('Try again! \n')
 
     if __name__ == '__main__':
         main()
