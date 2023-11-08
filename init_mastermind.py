@@ -19,10 +19,13 @@ class Play:
         while mastermind.continue_guessing:
             user_guess = input('Type your guess here: ')
             # Input validation:
-            if len(user_guess) != mastermind.COMBO_LENGTH:
-                print(f'Please input a combination of length {mastermind.COMBO_LENGTH}')
+            if len(user_guess) < mastermind.COMBO_LENGTH:
+                print(f'Input too short. Please make sure your input is {mastermind.COMBO_LENGTH} digits long. \n')
                 continue
-
+            elif len(user_guess) > mastermind.COMBO_LENGTH:
+                print(f'Input too long. Please make sure your input is only {mastermind.COMBO_LENGTH} long. \n')
+                continue
+            
             mastermind.add_guess(user_guess)
             check = mastermind.check_guess(user_guess)
             guesses = mastermind.view_guesses()
