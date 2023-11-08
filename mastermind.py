@@ -21,8 +21,23 @@ class Mastermind:
         return self.guesses
     
     # Write logic that checks if the guess is correct, partially correct, or incorrect:
-    def check_guess(self):
-        pass
+    def check_guess(self, user_guess: str):
+        guessed_combination = []
+        incorrect_numbers = []
+        correct_numbers = 0
+        correct_position = 0
+        for number in user_guess:
+            guessed_combination.append(number)
+        guessed_numbers = set(guessed_combination)
+        for i in range(self.COMBO_LENGTH):
+            number = user_guess[i]
+            if number not in self.hidden_combination:
+                incorrect_numbers.append(number)
+            if number == self.hidden_combination[i]:
+                correct_position += 1
+        correct_numbers = len(guessed_numbers)
+        return [correct_numbers, correct_position]
+        
 
     # Write logic that checks if a user can still make guesses:
     def continue_guessing(self):
