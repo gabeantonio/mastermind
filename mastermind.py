@@ -35,11 +35,10 @@ class Mastermind:
                 incorrect_numbers.append(number)
             if number == self.hidden_combination[i]:
                 correct_position += 1
-        correct_numbers = len(guessed_numbers)
-        # Correct numbers and correct positon doesnt account for duplicates and correct position does not work.
+        wrong_numbers = set(incorrect_numbers)
+        correct_numbers = len(guessed_numbers) - len(wrong_numbers)
         return [correct_numbers, correct_position]
         
-
     # Write logic that checks if a user can still make guesses:
     def continue_guessing(self):
         if self.TOTAL_TRIES - len(self.guesses) > 0 and not self.combination_found:
