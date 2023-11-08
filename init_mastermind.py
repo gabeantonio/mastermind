@@ -15,10 +15,10 @@ class Play:
             print(f'Failed to get a random combination. Status code: {response.status_code}')
         print('HIDDEN COMBINATION -->', hidden_combination)
 
-
         mastermind = Mastermind('1234')
         while mastermind.continue_guessing:
             user_guess = input('Type your guess here: ')
+            
             mastermind.add_guess(user_guess)
             guesses = mastermind.view_guesses()
             print('GUESSES --> ', guesses)

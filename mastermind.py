@@ -19,6 +19,10 @@ class Mastermind:
     # Write logic for a user to be able to view their past guesses:
     def view_guesses(self):
         return self.guesses
+    
+    # Write logic that checks if the guess is correct, partially correct, or incorrect:
+    def check_guess(self):
+        pass
 
     # Write logic that checks if a user can still make guesses:
     def continue_guessing(self):
