@@ -18,6 +18,11 @@ class Play:
         mastermind = Mastermind(hidden_combination)
         while mastermind.continue_guessing:
             user_guess = input('Type your guess here: ')
+            # Input validation:
+            if len(user_guess) != mastermind.COMBO_LENGTH:
+                print(f'Please input a combination of length {mastermind.COMBO_LENGTH}')
+                continue
+
             mastermind.add_guess(user_guess)
             check = mastermind.check_guess(user_guess)
             guesses = mastermind.view_guesses()
