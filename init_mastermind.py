@@ -34,10 +34,10 @@ class Play:
 
             print(f'You have guessed {check[0]} correct numbers and {check[1]} correct positions')
             print(f'You have {remaining_guesses} remaining guesses.')
-            print(f'Your past guesses: {guesses}')
+            print(f'Your past guesses: {guesses} \n')
 
         if mastermind.combination_found:
-            print('Congratulations! You have guessed the hidden combination correctly!')
+            print('Congratulations! You have guessed the hidden combination correctly.')
         else:
             print('You failed to guess the combination.')
 
