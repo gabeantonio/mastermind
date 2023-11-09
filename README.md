@@ -17,6 +17,7 @@ PROCESS
 11. Now that I am able to get the random number combination, I want to write game logic that will check if the guess of the player is equal to the hidden combination, as well as check for any correct individual numbers and positions.
 12. Then, based on the result of the guess, I want to display a message on the terminal.
 13. I then want to add colors to the messages based on the contents.
+14. Now that MVP is done, I want to implement a new feature: Giving the player a score that we can keep track of and display at the end of the game.
 
 TECHNOLOGIES USED:
 1. Python
