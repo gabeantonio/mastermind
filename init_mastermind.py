@@ -1,5 +1,6 @@
 from mastermind import Mastermind
 import requests
+from colorama import Fore
 
 class Play:
     def main():
@@ -21,10 +22,10 @@ class Play:
             user_guess = input('Type your guess here: ')
             # Input validation:
             if len(user_guess) < mastermind.COMBO_LENGTH:
-                print(f'Input too short. Please make sure your input is {mastermind.COMBO_LENGTH} digits long. \n')
+                print(Fore.RED + f'Input too short. Please make sure your input is {mastermind.COMBO_LENGTH} digits long. \n' + Fore.RESET)
                 continue
             elif len(user_guess) > mastermind.COMBO_LENGTH:
-                print(f'Input too long. Please make sure your input is only {mastermind.COMBO_LENGTH} long. \n')
+                print(Fore.RED + f'Input too long. Please make sure your input is only {mastermind.COMBO_LENGTH} long. \n' + Fore.RESET)
                 continue
             
             mastermind.add_guess(user_guess)
@@ -32,9 +33,9 @@ class Play:
             guesses = mastermind.view_guesses()
             remaining_guesses = mastermind.remaining_guesses()
 
-            print(f'You have guessed {check[0]} correct numbers and {check[1]} correct positions')
-            print(f'You have {remaining_guesses} remaining guesses.')
-            print(f'Your past guesses: {guesses} \n')
+            print(Fore.GREEN + f'You have guessed {check[0]} correct numbers and {check[1]} correct positions.' + Fore.RESET)
+            print(Fore.YELLOW + f'You have {remaining_guesses} remaining guesses.' + Fore.YELLOW)
+            print(Fore.YELLOW + f'Your past guesses: {guesses} \n' + Fore.RESET)
 
         if mastermind.combination_found:
             print('Congratulations! You have guessed the hidden combination correctly.')
