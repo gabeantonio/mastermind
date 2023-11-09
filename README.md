@@ -18,6 +18,7 @@ PROCESS
 12. Then, based on the result of the guess, I want to display a message on the terminal.
 13. I then want to add colors to the messages based on the contents.
 14. Now that MVP is done, I want to implement a new feature: Giving the player a score that we can keep track of and display at the end of the game.
+15. Based on my own decisions, for every correct number that the player guesses in the hidden combination, their score will go up by 1 (one) point. For every correct number that is also in the right position, their score will go up by 5 (five) points.
 
 TECHNOLOGIES USED:
 1. Python
