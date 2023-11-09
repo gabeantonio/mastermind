@@ -34,7 +34,11 @@ def main():
         guesses = mastermind.view_guesses()
         remaining_guesses = mastermind.remaining_guesses()
 
-        print(Fore.GREEN + f'You have guessed {check[0]} correct numbers and {check[1]} correct positions.' + Fore.RESET)
+        if check[0] == 0 and check[1] == 0:
+            print(Fore.RED + f'Sorry, all are incorrect.' + Fore.RESET)
+        else:
+            print(Fore.GREEN + f'You have guessed {check[0]} correct numbers and {check[1]} correct positions.' + Fore.RESET)
+            
         print(Fore.YELLOW + f'You have {remaining_guesses} remaining guesses.' + Fore.YELLOW)
         print(Fore.YELLOW + f'Your past guesses: {guesses} \n' + Fore.RESET)
 
