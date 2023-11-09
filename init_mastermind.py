@@ -20,6 +20,7 @@ def main():
     mastermind = Mastermind(hidden_combination)
 
     while mastermind.continue_guessing():
+        # Get user guess:
         user_guess = input('Type your guess here: ')
         # Input validation:
         if len(user_guess) < mastermind.COMBO_LENGTH:
@@ -28,20 +29,27 @@ def main():
         elif len(user_guess) > mastermind.COMBO_LENGTH:
             print(Fore.RED + f'Input too long. Please make sure your input is only {mastermind.COMBO_LENGTH} long. \n' + Fore.RESET)
             continue
-            
+        
+        # Add the user's guess to the guesses array:
         mastermind.add_guess(user_guess)
+        # Check if user's guess is has any correct numbers and positions:
         check = mastermind.check_guess(user_guess)
+        # Show the user their past guesses:
         guesses = mastermind.view_guesses()
+        # Show the user how many more guesses they have before the game ends:
         remaining_guesses = mastermind.remaining_guesses()
 
+        # Check if the guess is partially correct or completely incorrect:
         if check[0] == 0 and check[1] == 0:
             print(Fore.RED + f'Sorry, all are incorrect.' + Fore.RESET)
         else:
             print(Fore.GREEN + f'You have guessed {check[0]} correct numbers and {check[1]} correct positions.' + Fore.RESET)
-            
+        
+        # Print the user's past guesses and number of remaining guesses:
         print(Fore.YELLOW + f'You have {remaining_guesses} remaining guesses.' + Fore.YELLOW)
         print(Fore.YELLOW + f'Your past guesses: {guesses} \n' + Fore.RESET)
 
+    # Winning logic:
     if mastermind.combination_found:
         print(Fore.GREEN + 'Congratulations! You have guessed the hidden combination correctly.' + Fore.RESET)
     else:
