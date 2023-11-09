@@ -45,6 +45,9 @@ def main():
         if check[0] == 0 and check[1] == 0:
             print(Fore.RED + f'Sorry, all are incorrect.' + Fore.RESET)
         else:
+            # I am including both the count of the correct numbers and positions because if either of them are 0, it will not affect the other.
+            player_score += check[0] + (check[1] * 5)
+            print(Fore.GREEN + f'Your score increased! Your score: {player_score}' + Fore.RESET)
             print(Fore.GREEN + f'You have guessed {check[0]} correct numbers and {check[1]} correct positions.' + Fore.RESET)
         
         # Print the user's past guesses and number of remaining guesses:
