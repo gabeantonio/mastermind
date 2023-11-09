@@ -39,9 +39,9 @@ def main():
         print(Fore.YELLOW + f'Your past guesses: {guesses} \n' + Fore.RESET)
 
     if mastermind.combination_found:
-        print('Congratulations! You have guessed the hidden combination correctly.')
+        print(Fore.GREEN + 'Congratulations! You have guessed the hidden combination correctly.' + Fore.RESET)
     else:
-        print('You failed to guess the combination.')
+        print(Fore.RED +'You failed to guess the combination.')
 
 if __name__ == '__main__':
     main()
