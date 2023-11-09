@@ -18,6 +18,8 @@ def main():
     print('HIDDEN COMBINATION -->', hidden_combination)
 
     mastermind = Mastermind(hidden_combination)
+    # Initialize a score variable:
+    player_score = 0
 
     while mastermind.continue_guessing():
         # Get user guess:
