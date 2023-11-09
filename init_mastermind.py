@@ -17,10 +17,14 @@ def main():
     
     print('HIDDEN COMBINATION -->', hidden_combination)
 
+    play_game(hidden_combination)
+
+
+def play_game(hidden_combination: str):
     mastermind = Mastermind(hidden_combination)
     # Initialize a score variable:
     player_score = 0
-
+    # Initialize game loop:
     while mastermind.continue_guessing():
         # Get user guess:
         user_guess = input('Type your guess here: ')
