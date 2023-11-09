@@ -16,6 +16,7 @@ PROCESS
 10. Next, I want to make an API call to the Random Integer API so that we can use the returned value as the hidden combination. 
 11. Now that I am able to get the random number combination, I want to write game logic that will check if the guess of the player is equal to the hidden combination, as well as check for any correct individual numbers and positions.
 12. Then, based on the result of the guess, I want to display a message on the terminal.
+13. I then want to add colors to the messages based on the contents.
 
 TECHNOLOGIES USED:
 1. Python
