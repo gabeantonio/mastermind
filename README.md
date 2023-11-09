@@ -14,8 +14,10 @@ PROCESS
 8. Now, I want to run the entriety of the game through a loop, so I will create a function that checks if the user still has remaining guesses.
 9. Next, I want to create a function that will return the array that will hold all of the user's past guesses, so that the user can refer back to them.
 10. Next, I want to make an API call to the Random Integer API so that we can use the returned value as the hidden combination. 
-11. Now that I am able to get the random number combination, I want to write game logic that will check if the guess of the player is equal to the hidden combination, as well as check for any correct individual numbers and positions. 
+11. Now that I am able to get the random number combination, I want to write game logic that will check if the guess of the player is equal to the hidden combination, as well as check for any correct individual numbers and positions.
+12. Then, based on the result of the guess, I want to display a message on the terminal.
 
 TECHNOLOGIES USED:
 1. Python
 2. Python requests.2.31.0
+3. Colorama
