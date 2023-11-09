@@ -48,7 +48,7 @@ def main():
             print(Fore.RED + f'Your score decreased! Your score: {player_score}' + Fore.RESET)
         else:
             # I am including both the count of the correct numbers and positions because if either of them are 0, it will not affect the other.
-            player_score += check[0] + (check[1] * 5)
+            player_score += ((check[0] + (check[1] * 5)) - (mastermind.COMBO_LENGTH - check[1]))
             print(Fore.GREEN + f'You have guessed {check[0]} correct numbers and {check[1]} correct positions.' + Fore.RESET)
             print(Fore.GREEN + f'Your score increased! Your score: {player_score}' + Fore.RESET)
         
