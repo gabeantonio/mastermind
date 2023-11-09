@@ -41,16 +41,20 @@ def main():
         # Show the user how many more guesses they have before the game ends:
         remaining_guesses = mastermind.remaining_guesses()
 
-        # Check if the guess is partially correct or completely incorrect:
+        # Check if the guess is partially correct or completely incorrect.
+        # All wrong:
         if check[0] == 0 and check[1] == 0:
             player_score -= 4 if player_score > 4 else 0
             print(Fore.RED + f'Sorry, all are incorrect.' + Fore.RESET)
             print(Fore.RED + f'Your score decreased! Your score: {player_score}' + Fore.RESET)
-        else:
-            # I am including both the count of the correct numbers and positions because if either of them are 0, it will not affect the other.
-            # The player score calculation is as follows:
-            # player_score = (number of correct numbers + number of correct numbers AND positions - number of incorrect numbers.)
-            player_score += ((check[0] + (check[1] * 4)) - (mastermind.COMBO_LENGTH - check[1]))
+        # Some correct, but not in right positions:
+        elif check[0] > 0 and check[1] == 0:
+            player_score += check[0] - check[2]
+            print(Fore.GREEN + f'You have guessed {check[0]} correct numbers and {check[1]} correct positions.' + Fore.RESET)
+            print(Fore.GREEN + f'Your score: {player_score}' + Fore.RESET)
+        # Correct AND in right positions:
+        elif check[1] > 0:
+            player_score += (check[1] * 5) - check[2]
             print(Fore.GREEN + f'You have guessed {check[0]} correct numbers and {check[1]} correct positions.' + Fore.RESET)
             print(Fore.GREEN + f'Your score increased! Your score: {player_score}' + Fore.RESET)
         

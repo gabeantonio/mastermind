@@ -20,9 +20,9 @@ PROCESS
 14. Now that MVP is done, I want to implement a new feature: Giving the player a score that we can keep track of and display at the end of the game.
 15. Based on my own decisions:
 
-- User guesses a correct number: +1 point
-- User guesses a correct number AND position: +4 points
-- User guesses some numbers correctly AND some numbers incorrectly: -1 point
+- User guesses a correct number BUT not in the right position: +1 point
+- User guesses a correct number AND in the right position: +5 points
+- User guesses an incorrect number: -1 point
 - User guesses all numbers incorrectly: -4 points
 
 

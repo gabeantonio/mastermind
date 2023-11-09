@@ -39,7 +39,7 @@ class Mastermind:
                 correct_position += 1
         wrong_numbers = set(incorrect_numbers)
         correct_numbers = len(guessed_numbers) - len(wrong_numbers)
-        return [correct_numbers, correct_position]
+        return [correct_numbers, correct_position, len(incorrect_numbers)]
         
     # Write logic so that the user can view how many guesses they have left:
     def remaining_guesses(self):
