@@ -54,18 +54,22 @@ def play_game(hidden_combination: str):
                 player_score -= 1
             print(Fore.RED + f'Sorry, all are incorrect.' + Fore.RESET)
             print(Fore.RED + f'Your score decreased! Your score: {player_score}' + Fore.RESET)
-        # Some correct, but not in right positions:
+        # No right positions:
         elif check[1] == 0:
+            # Some correct numbers and some incorrect numbers present:
             if check[0] > 0 and check[2] > 0:
                 player_score += check[0] - check[2]
+            # Correct numbers present but not in right position:
             else:
                 player_score += 4
             print(Fore.GREEN + f'You have guessed {check[0]} correct numbers and {check[1]} correct positions. STATEMENT 1' + Fore.RESET)
             print(Fore.GREEN + f'Your score: {player_score}' + Fore.RESET)
-        # Correct AND in right positions:
+        # Right positions:
         elif check[1] > 0:
+            # Incorrect numbers present:
             if check[2] > 0:
                 player_score += (check[1] * 5) - check[2]
+            # No incorrect numbers present:
             else:
                 player_score += (check[1] * 5) + check[0]
             print(Fore.GREEN + f'You have guessed {check[0]} correct numbers and {check[1]} correct positions. STATEMENT 2' + Fore.RESET)
