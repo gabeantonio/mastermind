@@ -26,7 +26,6 @@ class Mastermind:
     def check_guess(self, user_guess: str):
         guessed_combination = []
         incorrect_numbers = []
-        correct_numbers = 0
         correct_position = 0
         for number in user_guess:
             guessed_combination.append(number)
