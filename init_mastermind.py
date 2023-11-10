@@ -48,7 +48,10 @@ def play_game(hidden_combination: str):
         # Check if the guess is partially correct or completely incorrect.
         # All wrong:
         if check[0] == 0 and check[1] == 0:
-            player_score -= 4 if player_score > 4 else 0
+            if player_score > 4:
+                player_score -= 4
+            else:
+                player_score -= 1
             print(Fore.RED + f'Sorry, all are incorrect.' + Fore.RESET)
             print(Fore.RED + f'Your score decreased! Your score: {player_score}' + Fore.RESET)
         # Some correct, but not in right positions:
