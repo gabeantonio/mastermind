@@ -68,7 +68,7 @@ def play_game(hidden_combination: str):
         elif check[1] > 0:
             # Incorrect numbers present:
             if check[2] > 0:
-                player_score += (check[1] * 4) - check[2]
+                player_score += ((check[1] * 4) + check[0]) - check[2]
             # No incorrect numbers present:
             else:
                 player_score += ((check[1] * 4) + check[0])
