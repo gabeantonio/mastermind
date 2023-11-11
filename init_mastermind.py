@@ -68,10 +68,10 @@ def play_game(hidden_combination: str):
         elif check[1] > 0:
             # Incorrect numbers present:
             if check[2] > 0:
-                player_score += (check[1] * 5) - check[2]
+                player_score += (check[1] * 4) - check[2]
             # No incorrect numbers present:
             else:
-                player_score += (check[1] * 5) + check[0]
+                player_score += ((check[1] * 4) + check[0])
             print(Fore.GREEN + f'You have guessed {check[0]} correct numbers and {check[1]} correct positions. STATEMENT 2' + Fore.RESET)
             print(Fore.GREEN + f'Your score increased! Your score: {player_score}' + Fore.RESET)
         
