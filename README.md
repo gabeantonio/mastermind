@@ -25,6 +25,7 @@ PROCESS
 - User guesses an incorrect number: -1 point
 - User guesses all numbers incorrectly: -4 points
 
+16. Next, I want to make it so that the game will give the player hints in case they need it.
 
 
 TECHNOLOGIES USED:
