@@ -16,15 +16,15 @@ def main():
     else:
         print(f'Failed to get a random combination. Status code: {response.status_code}')
     
-    print('HIDDEN COMBINATION -->', hidden_combination)
-
-    play_game(hidden_combination)
-
-
-def play_game(hidden_combination: str):
-    mastermind = Mastermind(hidden_combination)
+    # print('HIDDEN COMBINATION -->', hidden_combination)
     # Initialize a score variable:
     player_score = 0
+    play_game(hidden_combination, player_score)
+
+
+def play_game(hidden_combination: str, player_score: int):
+    mastermind = Mastermind(hidden_combination)
+
     # Initialize game loop:
     while mastermind.continue_guessing():
         # Get user guess:
@@ -50,6 +50,13 @@ def play_game(hidden_combination: str):
         # Show the user how many more guesses they have before the game ends:
         remaining_guesses = mastermind.remaining_guesses()
 
+
+        if player_score == 0 and correct_positions == 0:
+            if incorrect_numbers > 2:
+                player_score -= 0
+                print(Fore.GREEN + f'You have guessed {correct_numbers} correct numbers and {correct_positions} correct positions.' + Fore.RESET)
+                print(Fore.RED + f'Your score: {player_score}\n' + Fore.RESET)
+                continue
         # Check if the guess is partially correct or completely incorrect.
         # All wrong:
         if correct_numbers == 0 and correct_positions == 0:
@@ -76,19 +83,19 @@ def play_game(hidden_combination: str):
             # Correct numbers present but not in right position:
             else:
                 player_score += 4
-            print(Fore.GREEN + f'You have guessed {check[0]} correct numbers and {check[1]} correct positions. STATEMENT 1' + Fore.RESET)
+            print(Fore.GREEN + f'You have guessed {correct_numbers} correct numbers and {correct_positions} correct positions.' + Fore.RESET)
             print(Fore.GREEN + f'Your score: {player_score}' + Fore.RESET)
         # Right positions:
         elif correct_positions > 0:
             # Incorrect numbers present:
             if incorrect_numbers > 0:
-                # Change check[0] to check[3] to account for duplicate correct numbers:
+                # Here I use correct_instances instead of correct_numbers because it is inclusive of duplicate correct numbers:
                 player_score += ((correct_positions * 4) + correct_instances) - incorrect_numbers
             # No incorrect numbers present:
             else:
-                # Change check[0] to check[3] to account for duplicate correct numbers:
+                # Here I use correct_instances instead of correct_numbers because it is inclusive of duplicate correct numbers:
                 player_score += ((correct_positions * 4) + correct_instances)
-            print(Fore.GREEN + f'You have guessed {check[0]} correct numbers and {check[1]} correct positions. STATEMENT 2' + Fore.RESET)
+            print(Fore.GREEN + f'You have guessed {correct_numbers} correct numbers and {correct_positions} correct positions.' + Fore.RESET)
             print(Fore.GREEN + f'Your score increased! Your score: {player_score}' + Fore.RESET)
         
         # Print the user's past guesses and number of remaining guesses:
