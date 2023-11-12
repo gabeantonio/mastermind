@@ -48,7 +48,7 @@ def play_game(hidden_combination: str):
         # Check if the guess is partially correct or completely incorrect.
         # All wrong:
         if check[0] == 0 and check[1] == 0:
-            if player_score > 4:
+            if player_score >= 4:
                 player_score -= 4
             elif player_score >= 1:
                 player_score -= 1
