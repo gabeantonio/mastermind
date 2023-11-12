@@ -1,3 +1,6 @@
+import random
+from colorama import Fore
+
 class Mastermind:
     TOTAL_TRIES = 10
     COMBO_LENGTH = 4
@@ -58,3 +61,11 @@ class Mastermind:
             return True
         else: 
             return False
+        
+    # Write logic so that the user can get a hint if they need it:
+    def hint(self, hint_needed: str):
+        if hint_needed.lower() == 'yes':
+            random_index = random.randint(0, 3)
+            print(Fore.CYAN + f'\nOne of the numbers is {self.hidden_combination[random_index]}.' + Fore.RESET)
+        elif hint_needed.lower() == 'no':
+            print(Fore.GREEN + '\nOkay. Good luck!' + Fore.RESET)
