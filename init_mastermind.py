@@ -50,10 +50,13 @@ def play_game(hidden_combination: str):
         if check[0] == 0 and check[1] == 0:
             if player_score > 4:
                 player_score -= 4
-            else:
+            elif player_score >= 1:
                 player_score -= 1
+            else:
+                player_score -= 0
             print(Fore.RED + f'Sorry, all are incorrect.' + Fore.RESET)
             print(Fore.RED + f'Your score decreased! Your score: {player_score}' + Fore.RESET)
+            hint_needed = input('Do you need a hint? Type Yes or No: ')
         # No right positions:
         elif check[1] == 0:
             # Some correct numbers and some incorrect numbers present:
@@ -84,6 +87,9 @@ def play_game(hidden_combination: str):
         print(Fore.GREEN + 'Congratulations! You have guessed the hidden combination correctly.' + Fore.RESET)
     else:
         print(Fore.RED +'You failed to guess the combination.')
+
+def hint():
+    print('HINT!')
 
 if __name__ == '__main__':
     main()
