@@ -6,20 +6,14 @@ import random
 
 def main():
     # Make a call to the API:
-    api_url = "https://www.random.org/integers/?num=4&min=1&max=7&col=1&base=10&format=plain&rnd=new"
-    response = requests.get(api_url)
-    if response.status_code == 200:
-        combination = ''
-        combination += response.text
-        # For some reason the text comes back in rows, so the below operation removes the spaces from the row:
-        hidden_combination = combination.replace('\n', '')
-    else:
-        print(f'Failed to get a random combination. Status code: {response.status_code}')
+    hidden_combination = get_random_combination()
     
     print('HIDDEN COMBINATION -->', hidden_combination)
 
     # Initialize a score variable:
     player_score = 0
+
+    # Call the play game function:
     play_game(hidden_combination, player_score)
 
 
@@ -120,8 +114,17 @@ def play_game(hidden_combination: str, player_score: int):
     else:
         print(Fore.RED +'You failed to guess the combination.')
 
+def get_random_combination():
+    api_url = "https://www.random.org/integers/?num=4&min=1&max=7&col=1&base=10&format=plain&rnd=new"
+    response = requests.get(api_url)
+    if response.status_code == 200:
+        combination = ''
+        combination += response.text
+        # For some reason the text comes back in rows, so the below operation removes the spaces from the row:
+        hidden_combination = combination.replace('\n', '')
+        return hidden_combination
+    else:
+        print(f'Failed to get a random combination. Status code: {response.status_code}')
 
 if __name__ == '__main__':
     main()
-
-
