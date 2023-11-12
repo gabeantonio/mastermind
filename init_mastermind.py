@@ -61,9 +61,9 @@ def play_game(hidden_combination: str):
             hint_needed = input('Do you need a hint? Type Yes or No: ')
             if hint_needed.lower() == 'yes':
                 random_index = random.randint(0, 3)
-                print(Fore.CYAN + f'One of the numbers is {hidden_combination[random_index]}.' + Fore.RESET)
+                print(Fore.CYAN + f'\nOne of the numbers is {hidden_combination[random_index]}.' + Fore.RESET)
             elif hint_needed.lower() == 'no':
-                print(Fore.GREEN + 'Okay. Good luck!' + Fore.RESET)
+                print(Fore.GREEN + '\nOkay. Good luck!' + Fore.RESET)
         # No right positions:
         elif check[1] == 0:
             # Some correct numbers and some incorrect numbers present:
