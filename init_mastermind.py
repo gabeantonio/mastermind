@@ -61,9 +61,9 @@ def play_game(hidden_combination: str):
             hint_needed = input('Do you need a hint? Type Yes or No: ')
             if hint_needed.lower() == 'yes':
                 random_index = random.randint(0, 3)
-                print(f'One of the numbers is {hidden_combination[random_index]}.')
+                print(Fore.CYAN + f'One of the numbers is {hidden_combination[random_index]}.' + Fore.RESET)
             elif hint_needed.lower() == 'no':
-                print('Okay. Good luck!')
+                print(Fore.GREEN + 'Okay. Good luck!' + Fore.RESET)
         # No right positions:
         elif check[1] == 0:
             # Some correct numbers and some incorrect numbers present:
@@ -78,10 +78,12 @@ def play_game(hidden_combination: str):
         elif check[1] > 0:
             # Incorrect numbers present:
             if check[2] > 0:
-                player_score += ((check[1] * 4) + check[0]) - check[2]
+                # Change check[0] to check[3] to account for duplicate correct numbers:
+                player_score += ((check[1] * 4) + check[3]) - check[2]
             # No incorrect numbers present:
             else:
-                player_score += ((check[1] * 4) + check[0])
+                # Change check[0] to check[3] to account for duplicate correct numbers:
+                player_score += ((check[1] * 4) + check[3])
             print(Fore.GREEN + f'You have guessed {check[0]} correct numbers and {check[1]} correct positions. STATEMENT 2' + Fore.RESET)
             print(Fore.GREEN + f'Your score increased! Your score: {player_score}' + Fore.RESET)
         

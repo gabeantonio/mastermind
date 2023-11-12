@@ -26,6 +26,7 @@ class Mastermind:
     def check_guess(self, user_guess: str):
         guessed_combination = []
         incorrect_numbers = []
+        in_combination = []
         correct_position = 0
         for number in user_guess:
             guessed_combination.append(number)
@@ -34,11 +35,17 @@ class Mastermind:
             number = user_guess[i]
             if number not in self.hidden_combination:
                 incorrect_numbers.append(number)
+            else:
+                in_combination.append(number)
+
             if number == self.hidden_combination[i]:
                 correct_position += 1
+
         wrong_numbers = set(incorrect_numbers)
         correct_numbers = len(guessed_numbers) - len(wrong_numbers)
-        return [correct_numbers, correct_position, len(incorrect_numbers)]
+        # Add in_combination to return statement. in_combination will hold the number of correct numbers INCLUDING DUPLICATES,
+        # which is helpful when adding 1 extra point for each correct number in a correct position (duplicates weren't being accounted for in this case).
+        return [correct_numbers, correct_position, len(incorrect_numbers), len(in_combination)]
         
     # Write logic so that the user can view how many guesses they have left:
     def remaining_guesses(self):
