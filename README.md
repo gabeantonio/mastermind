@@ -32,3 +32,4 @@ TECHNOLOGIES USED:
 1. Python
 2. Python requests.2.31.0
 3. Colorama
+4. Python Random Module
