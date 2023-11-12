@@ -1,6 +1,7 @@
 from mastermind import Mastermind
 import requests
 from colorama import Fore
+import random
 
 
 def main():
@@ -56,7 +57,13 @@ def play_game(hidden_combination: str):
                 player_score -= 0
             print(Fore.RED + f'Sorry, all are incorrect.' + Fore.RESET)
             print(Fore.RED + f'Your score decreased! Your score: {player_score}' + Fore.RESET)
+            # HINT: 
             hint_needed = input('Do you need a hint? Type Yes or No: ')
+            if hint_needed.lower() == 'yes':
+                random_index = random.randint(0, 3)
+                print(f'One of the numbers is {hidden_combination[random_index]}.')
+            elif hint_needed.lower() == 'no':
+                print('Okay. Good luck!')
         # No right positions:
         elif check[1] == 0:
             # Some correct numbers and some incorrect numbers present:
