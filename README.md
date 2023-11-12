@@ -26,6 +26,7 @@ PROCESS
 - User guesses all numbers incorrectly: -4 points
 
 16. Next, I want to make it so that the game will give the player hints in case they need it.
+17. I was able to add hints by adding logic to the part of the game where a user's entire guess has NO correct numbers.
 
 
 TECHNOLOGIES USED:
