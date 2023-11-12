@@ -58,6 +58,16 @@ def play_game(hidden_combination: str, player_score: int):
                 player_score -= 0
                 print(Fore.GREEN + f'You have guessed {correct_numbers} correct numbers and {correct_positions} correct positions.' + Fore.RESET)
                 print(Fore.RED + f'Your score: {player_score}\n' + Fore.RESET)
+                hint_needed = input(Fore.CYAN + 'Do you need a hint? Type Yes or No: ' + Fore.RESET)
+                mastermind.hint(hint_needed)
+                continue
+
+        # CONDITION: PLAYER SCORE IS 1 AND A GUESS HAS THE POTENTIAL TO MAKE THE SCORE NEGATIVE:
+        if player_score == 1 and correct_positions == 0:
+            if incorrect_numbers > 2:
+                player_score -= 1
+                print(Fore.GREEN + f'You have guessed {correct_numbers} correct numbers and {correct_positions} correct positions.' + Fore.RESET)
+                print(Fore.RED + f'Your score: {player_score}\n' + Fore.RESET)
                 continue
 
         # CONDITION: ALL ARE INCORRECT:
@@ -113,3 +123,5 @@ def play_game(hidden_combination: str, player_score: int):
 
 if __name__ == '__main__':
     main()
+
+
