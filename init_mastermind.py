@@ -5,6 +5,8 @@ import math
 import time
 
 def main():
+    # ADD GAME RULES FOR THE PLAYER:
+    intro()
     # ASK USER IF THEY WANT TO INCREASE THE DIFFICULTY OF THE GAME:
     difficulty = input(Fore.RED + 'Do you want to play on a hard difficulty level? Type Yes or No: ' + Fore.RESET)
     if difficulty.lower() == 'yes':
@@ -81,6 +83,9 @@ def display_guesses(correct_numbers: int, correct_positions: int, player_score: 
     print(Fore.GREEN + f'Your score: {player_score}' + Fore.RESET)
     print(Fore.YELLOW + f'You have {remaining_guesses} remaining guesses.' + Fore.YELLOW)
     print(Fore.YELLOW + f'Your past guesses: {guesses} \n' + Fore.RESET)
+
+def intro():
+    print('Welcome to Mastermind!\nAt the start of the game, the computer will randomly select a pattern of 4 or 5 different numbers\n(depending on the difficulty you choose) from a total of 8 different numbers.\nYou will have 10 attempts to guess the number combinations.\nAfter each attempt, the computer will provide you some feedback regarding your most recent guess.\nGood luck! \n')
 
 if __name__ == '__main__':
     main()
