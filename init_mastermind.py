@@ -65,7 +65,7 @@ def play_game(hidden_combination: str, player_score: int):
         print(Fore.RED + f'You failed to guess the combination. The hidden combination was: {hidden_combination}')
 
 def get_random_combination(difficulty: int):
-    api_url = f"https://www.random.org/integers/?num={difficulty}&min=1&max=7&col=1&base=10&format=plain&rnd=new"
+    api_url = f"https://www.random.org/integers/?num={difficulty}&min=0&max=7&col=1&base=10&format=plain&rnd=new"
     response = requests.get(api_url)
     if response.status_code == 200:
         combination = ''
