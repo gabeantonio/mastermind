@@ -1,5 +1,5 @@
 # mastermind
-x
+
 ### RUN MASTERMIND LOCALLY ON YOUR DEVICE
 
 1. Install Python - If you have not done so already, ensure that you have Python3 installed on your device/machine. You can install it from [Python's Official Website](https://www.python.org/).
