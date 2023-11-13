@@ -4,7 +4,14 @@ README
 
 RUN MASTERMIND LOCALLY ON YOUR DEVICE
 
-1. Install Python - If you have not done so already, ensure that you have Python3 installed on your device/machine. You can install it from [Python's Official Website](https://www.python.org/)
+1. Install Python - If you have not done so already, ensure that you have Python3 installed on your device/machine. You can install it from [Python's Official Website](https://www.python.org/).
+
+2. Clone this repository - Open your terminal and run the following command to clone this Mastermind repository:
+
+```
+$ git clone https://github.com/gabeantonio/mastermind.git
+```
+
 
 
 PROCESS
