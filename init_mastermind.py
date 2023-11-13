@@ -4,7 +4,11 @@ from colorama import Fore
 
 def main():
     # MAKE API CALL AND STORE RETURNED COMBINATION IN THE BELOW VARIABLE:
-    hidden_combination = get_random_combination()
+    difficulty = input(Fore.RED + 'Do you want to play on a hard difficulty level? Type Yes or No: ' + Fore.RESET)
+    if difficulty.lower() == 'yes':
+        hidden_combination = get_random_combination(5)
+    else:
+        hidden_combination = get_random_combination(4)
     # FOR TESTING:
     print('HIDDEN COMBINATION: ', hidden_combination)
     # INITIALIZE THE PLAYER SCORE TO 0:
@@ -20,10 +24,10 @@ def play_game(hidden_combination: str, player_score: int):
         # GET THE USER'S GUESS:
         user_guess = input('Type your guess here: ')
         # WRITE LOGIC FOR USER INPUT VALIDATION:
-        if len(user_guess) < mastermind.COMBO_LENGTH:
+        if len(user_guess) < len(hidden_combination):
             print(Fore.RED + f'Input too short. Please make sure your input is {mastermind.COMBO_LENGTH} digits long. \n' + Fore.RESET)
             continue
-        elif len(user_guess) > mastermind.COMBO_LENGTH:
+        elif len(user_guess) > len(hidden_combination):
             print(Fore.RED + f'Input too long. Please make sure your input is only {mastermind.COMBO_LENGTH} long. \n' + Fore.RESET)
             continue
         # ADD THE USER'S GUESS TO THE ARRAY OF PREVIOUS GUESSES:
@@ -54,8 +58,8 @@ def play_game(hidden_combination: str, player_score: int):
     else:
         print(Fore.RED + f'You failed to guess the combination. The hidden combination was: {hidden_combination}')
 
-def get_random_combination():
-    api_url = "https://www.random.org/integers/?num=4&min=1&max=7&col=1&base=10&format=plain&rnd=new"
+def get_random_combination(difficulty: int):
+    api_url = f"https://www.random.org/integers/?num={difficulty}&min=1&max=7&col=1&base=10&format=plain&rnd=new"
     response = requests.get(api_url)
     if response.status_code == 200:
         combination = ''

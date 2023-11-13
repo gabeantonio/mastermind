@@ -3,7 +3,6 @@ from colorama import Fore
 
 class Mastermind:
     TOTAL_TRIES = 10
-    COMBO_LENGTH = 4
     def __init__(self, hidden_combination: str):
         self.hidden_combination = hidden_combination
         self.guesses = []
@@ -34,7 +33,7 @@ class Mastermind:
         for number in user_guess:
             guessed_combination.append(number)
         guessed_numbers = set(guessed_combination)
-        for i in range(self.COMBO_LENGTH):
+        for i in range(len(self.hidden_combination)):
             number = user_guess[i]
             if number not in self.hidden_combination:
                 incorrect_numbers.append(number)
