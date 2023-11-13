@@ -47,7 +47,7 @@ class Mastermind:
         correct_numbers = len(guessed_numbers) - len(wrong_numbers)
         # Add in_combination to return statement. in_combination will hold the number of correct numbers INCLUDING DUPLICATES,
         # which is helpful when adding 1 extra point for each correct number in a correct position (duplicates weren't being accounted for in this case).
-        return [correct_numbers, correct_position, len(incorrect_numbers), len(in_combination)]
+        return [correct_numbers, correct_position, len(in_combination)]
         
     # Write logic so that the user can view how many guesses they have left:
     def remaining_guesses(self):

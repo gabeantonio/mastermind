@@ -22,8 +22,6 @@ PROCESS
 
 - User guesses a correct number BUT not in the right position: +1 point
 - User guesses a correct number AND in the right position: +5 points
-- User guesses an incorrect number: -1 point
-- User guesses all numbers incorrectly: -4 points
 
 16. Next, I want to make it so that the game will give the player hints in case they need it.
 17. I was able to add hints by adding logic to the part of the game where a user's entire guess has NO correct numbers.
