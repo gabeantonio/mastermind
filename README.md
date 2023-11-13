@@ -31,6 +31,8 @@ PROCESS
 
 TECHNOLOGIES USED:
 1. Python
-2. Python requests.2.31.0
+2. Python requests.2.31.0 (for API request handling)
 3. Colorama
-4. Python Random Module
+4. Python Random Module (for hint functionality)
+5. Python Math module (for timer functionality)
+6. Python Time Module (for timer functionality)

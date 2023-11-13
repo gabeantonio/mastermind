@@ -1,13 +1,17 @@
 from mastermind import Mastermind
 import requests
 from colorama import Fore
+import math
+import time
 
 def main():
-    # MAKE API CALL AND STORE RETURNED COMBINATION IN THE BELOW VARIABLE:
+    # ASK USER IF THEY WANT TO INCREASE THE DIFFICULTY OF THE GAME:
     difficulty = input(Fore.RED + 'Do you want to play on a hard difficulty level? Type Yes or No: ' + Fore.RESET)
     if difficulty.lower() == 'yes':
+        # MAKE API CALL AND STORE RETURNED COMBINATION IN THE BELOW VARIABLE:
         hidden_combination = get_random_combination(5)
     else:
+        # MAKE API CALL AND STORE RETURNED COMBINATION IN THE BELOW VARIABLE:
         hidden_combination = get_random_combination(4)
     # FOR TESTING:
     print('HIDDEN COMBINATION: ', hidden_combination)
@@ -19,16 +23,17 @@ def main():
 def play_game(hidden_combination: str, player_score: int):
     # INSTANTIATE THE MASTERMIND CLASS:
     mastermind = Mastermind(hidden_combination)
+    start = time.time()
     # INITIALIZE A WHILE LOOP TO CONTINUE LOOPING UNTIL THE MASTERMIND.CONTINUE_GUESSING FUNCTION IS STILL TRUE:
     while mastermind.continue_guessing():
         # GET THE USER'S GUESS:
         user_guess = input('Type your guess here: ')
         # WRITE LOGIC FOR USER INPUT VALIDATION:
         if len(user_guess) < len(hidden_combination):
-            print(Fore.RED + f'Input too short. Please make sure your input is {mastermind.COMBO_LENGTH} digits long. \n' + Fore.RESET)
+            print(Fore.RED + f'Input too short. Please make sure your input is {len(hidden_combination)} digits long. \n' + Fore.RESET)
             continue
         elif len(user_guess) > len(hidden_combination):
-            print(Fore.RED + f'Input too long. Please make sure your input is only {mastermind.COMBO_LENGTH} long. \n' + Fore.RESET)
+            print(Fore.RED + f'Input too long. Please make sure your input is only {len(hidden_combination)} long. \n' + Fore.RESET)
             continue
         # ADD THE USER'S GUESS TO THE ARRAY OF PREVIOUS GUESSES:
         mastermind.add_guess(user_guess)
@@ -54,7 +59,8 @@ def play_game(hidden_combination: str, player_score: int):
         display_guesses(correct_numbers, correct_positions, player_score, remaining_guesses, guesses)
     # WRITE WINNING LOGIC:
     if mastermind.combination_found:
-        print(Fore.GREEN + 'Congratulations! You have guessed the hidden combination correctly.' + Fore.RESET)
+        end = time.time()
+        print(Fore.GREEN + f'Congratulations! You have guessed the hidden combination correctly. You guessed it in {math.floor(end - start)} seconds. Can you guess it faster next time?' + Fore.RESET)
     else:
         print(Fore.RED + f'You failed to guess the combination. The hidden combination was: {hidden_combination}')
 
