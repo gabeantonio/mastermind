@@ -12,6 +12,37 @@ RUN MASTERMIND LOCALLY ON YOUR DEVICE
 $ git clone https://github.com/gabeantonio/mastermind.git
 ```
 
+3. Navigate to the project's directory - Move to the Mastermind project directory using the below command:
+
+```
+cd mastermind
+```
+
+4. Run the game - To play the game on your local terminal, execute the following command:
+
+```
+python3 init_mastermind.py
+```
+
+5. Follow the on-screen instructions - Once you execute the command stated above, please follow the on-screen instructions to play. Good luck, and happy guessing!
+
+TROUBLESHOOTING
+
+1. If you happen to encounter any dependency issues, install the required Python packages:
+
+Requests:
+
+```
+$ python3 -m pip install requests
+```
+
+Colorama:
+
+```
+$ pip install colorama
+```
+
+All other modules are built into Python3.
 
 
 PROCESS
