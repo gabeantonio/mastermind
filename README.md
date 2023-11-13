@@ -1,8 +1,6 @@
 # mastermind
-
-README
-
-RUN MASTERMIND LOCALLY ON YOUR DEVICE
+x
+# RUN MASTERMIND LOCALLY ON YOUR DEVICE
 
 1. Install Python - If you have not done so already, ensure that you have Python3 installed on your device/machine. You can install it from [Python's Official Website](https://www.python.org/).
 
@@ -26,7 +24,7 @@ python3 init_mastermind.py
 
 5. Follow the on-screen instructions - Once you execute the command stated above, please follow the on-screen instructions to play. Good luck, and happy guessing!
 
-TROUBLESHOOTING
+# TROUBLESHOOTING
 
 1. If you happen to encounter any dependency issues, install the required Python packages:
 
@@ -45,7 +43,7 @@ $ pip install colorama
 All other modules are built into Python3.
 
 
-PROCESS
+# PROCESS
 
 1. I plan on creating two scripts for this project: One script that will handle the interface on the command line, and one script that will handle the game logic.
 2. mastermind.py will contain the game logic while init_mastermind will take care of the interface.
@@ -72,7 +70,7 @@ PROCESS
 19. I also want to add difficulty levels for the game.
 
 
-TECHNOLOGIES USED:
+# TECHNOLOGIES USED:
 1. Python
 2. Python requests.2.31.0 (for API request handling)
 3. Colorama
