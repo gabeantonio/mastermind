@@ -2,6 +2,11 @@
 
 README
 
+RUN MASTERMIND LOCALLY ON YOUR DEVICE
+
+1. Install Python - If you have not done so already, ensure that you have Python3 installed on your device/machine. You can install it from [https://www.python.org/](Python's Official Website)
+
+
 PROCESS
 
 1. I plan on creating two scripts for this project: One script that will handle the interface on the command line, and one script that will handle the game logic.
