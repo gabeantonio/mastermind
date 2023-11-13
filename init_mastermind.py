@@ -1,25 +1,19 @@
 from mastermind import Mastermind
 import requests
 from colorama import Fore
-import random
-
 
 def main():
     # Make a call to the API:
     hidden_combination = get_random_combination()
-    
+    # For testing:
     print('HIDDEN COMBINATION -->', hidden_combination)
-
     # Initialize a score variable:
     player_score = 0
-
     # Call the play game function:
     play_game(hidden_combination, player_score)
 
-
 def play_game(hidden_combination: str, player_score: int):
     mastermind = Mastermind(hidden_combination)
-
     # Initialize game loop:
     while mastermind.continue_guessing():
         # Get user guess:
@@ -34,12 +28,9 @@ def play_game(hidden_combination: str, player_score: int):
         
         # Add the user's guess to the guesses array:
         mastermind.add_guess(user_guess)
-        # Check if user's guess is has any correct numbers and positions:
-        check = mastermind.check_guess(user_guess)
-        correct_numbers = check[0]
-        correct_positions = check[1]
-        incorrect_numbers = check[2]
-        correct_instances = check[3]
+        # Pass the user guess into the check_guess function to return results regarding the user's guess:
+        result = mastermind.check_guess(user_guess)
+        correct_numbers, correct_positions, incorrect_numbers, correct_instances = result[0], result[1], result[2], result[3]
 
         # Show the user their past guesses:
         guesses = mastermind.view_guesses()
@@ -52,6 +43,7 @@ def play_game(hidden_combination: str, player_score: int):
                 player_score -= 0
                 print(Fore.GREEN + f'You have guessed {correct_numbers} correct numbers and {correct_positions} correct positions.' + Fore.RESET)
                 print(Fore.RED + f'Your score: {player_score}\n' + Fore.RESET)
+                display_guesses(remaining_guesses, guesses)
                 hint_needed = input(Fore.CYAN + 'Do you need a hint? Type Yes or No: ' + Fore.RESET)
                 mastermind.hint(hint_needed)
                 continue
@@ -62,6 +54,7 @@ def play_game(hidden_combination: str, player_score: int):
                 player_score -= 1
                 print(Fore.GREEN + f'You have guessed {correct_numbers} correct numbers and {correct_positions} correct positions.' + Fore.RESET)
                 print(Fore.RED + f'Your score: {player_score}\n' + Fore.RESET)
+                display_guesses(remaining_guesses, guesses)
                 continue
 
         # CONDITION: ALL ARE INCORRECT:
@@ -79,12 +72,11 @@ def play_game(hidden_combination: str, player_score: int):
             hint_needed = input(Fore.CYAN + 'Do you need a hint? Type Yes or No: ' + Fore.RESET)
             mastermind.hint(hint_needed)
         
-
         # CONDITION: NONE IN CORRECT POSITIONS BUT CORRECT AND/OR INCORRECT NUMBERS MAY EXIST:
         elif correct_positions == 0:
             # Some correct numbers and some incorrect numbers present:
             if correct_numbers > 0 and incorrect_numbers > 0:
-                player_score += correct_numbers - incorrect_numbers
+                player_score += correct_instances - incorrect_numbers
             # ALL correct numbers are present but not in right position:
             else:
                 player_score += 4
@@ -105,8 +97,7 @@ def play_game(hidden_combination: str, player_score: int):
             print(Fore.GREEN + f'Your score increased! Your score: {player_score}' + Fore.RESET)
         
         # FOR USER REFERENCE: THE AMOUNT OF GUESSES THEY HAVE LEFT AND THEIR PAST GUESSES:
-        print(Fore.YELLOW + f'You have {remaining_guesses} remaining guesses.' + Fore.YELLOW)
-        print(Fore.YELLOW + f'Your past guesses: {guesses} \n' + Fore.RESET)
+        display_guesses(remaining_guesses, guesses)
 
     # Winning logic:
     if mastermind.combination_found:
@@ -125,6 +116,10 @@ def get_random_combination():
         return hidden_combination
     else:
         print(f'Failed to get a random combination. Status code: {response.status_code}')
+
+def display_guesses(remaining_guesses: int, guesses: list):
+    print(Fore.YELLOW + f'You have {remaining_guesses} remaining guesses.' + Fore.YELLOW)
+    print(Fore.YELLOW + f'Your past guesses: {guesses} \n' + Fore.RESET)
 
 if __name__ == '__main__':
     main()

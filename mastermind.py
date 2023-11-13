@@ -43,7 +43,6 @@ class Mastermind:
 
             if number == self.hidden_combination[i]:
                 correct_position += 1
-
         wrong_numbers = set(incorrect_numbers)
         correct_numbers = len(guessed_numbers) - len(wrong_numbers)
         # Add in_combination to return statement. in_combination will hold the number of correct numbers INCLUDING DUPLICATES,
@@ -53,7 +52,6 @@ class Mastermind:
     # Write logic so that the user can view how many guesses they have left:
     def remaining_guesses(self):
         return self.TOTAL_TRIES - len(self.guesses)
-
 
     # Write logic that checks if a user can still make guesses:
     def continue_guessing(self):
@@ -66,6 +64,6 @@ class Mastermind:
     def hint(self, hint_needed: str):
         if hint_needed.lower() == 'yes':
             random_index = random.randint(0, 3)
-            print(Fore.CYAN + f'\nOne of the numbers is {self.hidden_combination[random_index]}.' + Fore.RESET)
+            print(Fore.CYAN + f'\nOne of the numbers is {self.hidden_combination[random_index]}.\n' + Fore.RESET)
         elif hint_needed.lower() == 'no':
             print(Fore.GREEN + '\nOkay. Good luck!' + Fore.RESET)
