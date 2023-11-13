@@ -26,6 +26,7 @@ PROCESS
 16. Next, I want to make it so that the game will give the player hints in case they need it.
 17. I was able to add hints by adding logic to the part of the game where a user's entire guess has NO correct numbers.
 18. I want to add timer functionality for the game.
+19. I also want to add difficulty levels for the game.
 
 
 TECHNOLOGIES USED:
