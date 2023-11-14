@@ -42,6 +42,34 @@ $ pip install colorama
 
 All other modules are built into Python3.
 
+### HOW TO PLAY
+
+1. Run the game using the command below:
+
+```
+$ python3 init_mastermind.py
+```
+2. Once you run the game, you'll have the option of increasing the game's difficulty before you start. If you want to play on hard difficulty, type "Yes" or "No" if you'd like to play the game on normal difficulty.
+
+3. After picking your difficulty level, the game will begin, and you will be prompted to type your first guess. Please type in a combination of 4 numbers if you decided to play on normal difficulty and a combination of 5 numbers if you decided on hard difficulty. 
+
+4. After each attempt at guessing the hidden combination, the computer will give you feedback. It will tell you how many correct numbers and positions you guessed, if any. The computer will also tell you if you got all the numbers incorrect. Additionally, the computer will keep track of your score and your previous guesses, and display them to you. 
+
+The scoring is as follows:
+
+You guess a correct number BUT not in the right position: +1 point
+You guess a correct number AND in the right position: +5 points
+
+5. If you don't guess any correct numbers in a given attempt, the computer will ask you if you'd like a hint. Please type 'Yes' if you'd like one or 'No' if you don't.
+
+6. You will have 10 attempts to figure out the hidden combination, so please use the feedback and hints from the computer to figure out the hidden combination. 
+
+7. If you figure out the hidden combination before you run out of attempts, you win and the game will end. 
+
+8. Similarly, if you fail to figure out the hidden combination and run out of attempts, you lose and the game will end.
+
+9. Good luck!
+
 
 ### PROCESS
 
