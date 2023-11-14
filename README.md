@@ -55,10 +55,10 @@ $ python3 init_mastermind.py
 
 4. After each attempt at guessing the hidden combination, the computer will give you feedback. It will tell you how many correct numbers and positions you guessed, if any. The computer will also tell you if you got all the numbers incorrect. Additionally, the computer will keep track of your score and your previous guesses, and display them to you. 
 
-The scoring is as follows:
+    The scoring is as follows:
 
-You guess a correct number BUT not in the right position: +1 point
-You guess a correct number AND in the right position: +5 points
+    You guess a correct number BUT not in the right position: +1 point
+    You guess a correct number AND in the right position: +5 points
 
 5. If you don't guess any correct numbers in a given attempt, the computer will ask you if you'd like a hint. Please type 'Yes' if you'd like one or 'No' if you don't.
 
