@@ -75,9 +75,8 @@ def get_random_combination(difficulty: int):
     api_url = f"https://www.random.org/integers/?num={difficulty}&min=0&max=7&col=1&base=10&format=plain&rnd=new"
     response = requests.get(api_url)
     if response.status_code == 200:
-        combination = f'{response.text}'
         # REPLACES ALL OF THE ROW SPACES WITH JUST ONE SPACE, MAKING THE RETURNED TEXT '1234' FORMAT:
-        hidden_combination = combination.replace('\n', '')
+        hidden_combination = f'{response.text}'.replace('\n', '')
         return hidden_combination
     else:
         print(f'Failed to get a random combination. Status code: {response.status_code}')
