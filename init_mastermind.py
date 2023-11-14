@@ -11,7 +11,6 @@ def main():
         hidden_combination = get_random_combination(5)
     else:
         hidden_combination = get_random_combination(4)
-    print('HIDDEN COMBINATION: ', hidden_combination)
     player_score = 0
     play_game(hidden_combination, player_score)
 
