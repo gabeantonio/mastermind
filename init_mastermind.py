@@ -11,12 +11,13 @@ def main():
         hidden_combination = get_random_combination(5)
     else:
         hidden_combination = get_random_combination(4)
-    player_score = 0
-    play_game(hidden_combination, player_score)
+    print(hidden_combination)
+    play_game(hidden_combination)
 
-def play_game(hidden_combination: str, player_score: int):
+def play_game(hidden_combination: str):
     mastermind = Mastermind(hidden_combination)
     start = time.time()
+    player_score = 0
     while mastermind.continue_guessing():
         user_guess = input('Type your guess here: ')
         if not user_guess.isnumeric():

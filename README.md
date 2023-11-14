@@ -13,13 +13,13 @@ $ git clone https://github.com/gabeantonio/mastermind.git
 3. Navigate to the project's directory - Move to the Mastermind project directory using the below command:
 
 ```
-cd mastermind
+$ cd mastermind
 ```
 
 4. Run the game - To play the game on your local terminal, execute the following command:
 
 ```
-python3 init_mastermind.py
+$ python3 init_mastermind.py
 ```
 
 5. Follow the on-screen instructions - Once you execute the command stated above, please follow the on-screen instructions to play. Good luck, and happy guessing!
