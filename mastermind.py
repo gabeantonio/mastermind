@@ -54,7 +54,7 @@ class Mastermind:
 
     # Write logic that checks if a user can still make guesses:
     def continue_guessing(self):
-        if self.TOTAL_TRIES - len(self.guesses) > 0 and not self.combination_found:
+        if self.TOTAL_TRIES - len(self.guesses) > 0 and self.combination_found == False:
             return True
         else: 
             return False
