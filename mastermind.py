@@ -51,7 +51,7 @@ class Mastermind:
     # Write logic so that the user can get a hint if they need it:
     def hint(self, hint_needed: str):
         if hint_needed.lower() == 'yes':
-            random_index = random.randint(0, 3)
+            random_index = random.randint(0, len(self.hidden_combination) - 1)
             print(Fore.CYAN + f'\nOne of the numbers is {self.hidden_combination[random_index]}.\n' + Fore.RESET)
         elif hint_needed.lower() == 'no':
             print(Fore.GREEN + '\nOkay. Good luck!' + Fore.RESET)
