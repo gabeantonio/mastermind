@@ -31,12 +31,17 @@ def play_game(hidden_combination: str, player_score: int):
         # GET THE USER'S GUESS:
         user_guess = input('Type your guess here: ')
         # WRITE LOGIC FOR USER INPUT VALIDATION:
+        if not user_guess.isnumeric():
+            print(Fore.RED + f'Please enter numbers only. \n' + Fore.RESET)
+            continue
         if len(user_guess) < len(hidden_combination):
             print(Fore.RED + f'Input too short. Please make sure your input is {len(hidden_combination)} digits long. \n' + Fore.RESET)
             continue
         elif len(user_guess) > len(hidden_combination):
             print(Fore.RED + f'Input too long. Please make sure your input is only {len(hidden_combination)} long. \n' + Fore.RESET)
             continue
+        
+        
         # ADD THE USER'S GUESS TO THE ARRAY OF PREVIOUS GUESSES:
         mastermind.add_guess(user_guess)
         # TAKE THE USER'S CURRENT GUESS AND CHECK TO SEE IF ANY ARE CORRECT:
