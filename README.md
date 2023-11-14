@@ -57,8 +57,8 @@ $ python3 init_mastermind.py
 
     The scoring is as follows:
 
-    You guess a correct number BUT not in the right position: +1 point
-    You guess a correct number AND in the right position: +5 points
+    - Guessing a correct number BUT not in the right position: +1 point
+    - Guessing a correct number AND in the right position: +5 points
 
 5. If you don't guess any correct numbers in a given attempt, the computer will ask you if you'd like a hint. Please type 'Yes' if you'd like one or 'No' if you don't.
 
